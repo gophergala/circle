@@ -9,7 +9,7 @@ Drag-and-drop a folder into the app and Click the button.
 
 
 #TODO
-[ ] create the core utility
-[ ] create the http server
-[ ] create the UI
-[ ] add css.
+- [ ] create the core utility
+- [ ] create the http server
+- [ ] create the UI
+- [ ] add css.
