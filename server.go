@@ -81,8 +81,11 @@ func CreateFList(path string) *FList {
     checkErr(err)
     
     for _, file := range fi {
-        fobj.Files = append(fobj.Files, FullPath{Name:file.Name(), Path: path+"/"+file.Name()})
-        log.Println(file.Name())
+        if file.IsDir() {
+            fobj.Files = append(fobj.Files, 
+                                FullPath{Name:file.Name(), Path: path+"/"+file.Name()})
+            log.Println(file.Name())
+        }
     }
     
     //fobj := &FList{Files: fi}
