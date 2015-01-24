@@ -22,6 +22,7 @@ func Run(){
     
     r.HandleFunc("/", DefaultHandler).Methods("GET")
     r.HandleFunc("/", PathHandler).Methods("POST")
+    r.HandleFunc("/sort", SortHandler).Methods("POST")
     
     http.Handle("/", r)
     http.ListenAndServe(":8080", nil)
@@ -51,6 +52,12 @@ func PathHandler(res http.ResponseWriter, req *http.Request){
     
     err = t.Execute(res, fobj)
     checkErr(err)
+}
+
+func SortHandler(res http.ResponseWriter, req *http.Request){
+    path := req.FormValue("path")
+    log.Println(path)
+    Sort(path)
 }
 
 func checkErr(err error){
