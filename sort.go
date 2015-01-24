@@ -54,9 +54,7 @@ func mapToDir(base, name string) error {
     
     if sliceContains(docFormats, ext) {
         //Move to Documents subfolder
-        fulldirpath := filepath.Join(base, name)
-        fulltargetpath := filepath.Join(base, "Documents/", name)
-        os.Rename(fulldirpath, fulltargetpath)
+        MoveFile(base, name, "Documents")
     }
     
     
@@ -84,6 +82,12 @@ func sliceContains(formats []string, ext string) bool {
         }
     }
     return false
+}
+
+func MoveFile(base, name, subfolder string) {
+    fulldirpath := filepath.Join(base, name)
+    fulltargetpath := filepath.Join(base, subfolder, name)
+    os.Rename(fulldirpath, fulltargetpath)
 }
                 
     
