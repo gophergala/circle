@@ -27,7 +27,7 @@ func Sort(path string) error {
         return errors.New("error")
     }
     
-    directories := []string{"Images", "Music", "Audio", "Documents"}
+    directories := []string{"Images", "Music", "Videos", "Documents"}
     
     for _, subfolder := range directories {
         os.Mkdir(filepath.Join(path, subfolder), 0777)
