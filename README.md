@@ -9,7 +9,8 @@ Drag-and-drop a folder into the app and Click the button.
 
 
 #TODO
-- [*] create the core utility
-- [ ] create the http server and serve the file system.
-- [ ] create the UI
+- [x] create the core utility
+- [x] create the http server and serve the file system.
+- [x] create the client
+- [ ] make the server feed abs filepath
 - [ ] add css.
