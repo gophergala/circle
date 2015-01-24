@@ -27,6 +27,12 @@ func Sort(path string) error {
         return errors.New("error")
     }
     
+    directories := []string{"Images", "Music", "Audio", "Documents"}
+    
+    for _, subfolder := range directories {
+        os.Mkdir(filepath.Join(path, subfolder), 0777)
+    }
+    
     dir, err := os.Open(path)
     fi, err := dir.Readdir(100)
     for _, file := range fi {
