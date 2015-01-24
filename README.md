@@ -5,12 +5,13 @@ Circle is a file management utility that can sort files under directories from t
 
 # Usage
 
-Drag-and-drop a folder into the app and Click the button.
+Select a folder and Click 'Sort' Button
 
 
 #TODO
 - [x] create the core utility
 - [x] create the http server and serve the file system.
 - [x] create the client
-- [ ] make the server feed abs filepath
+- [x] make the server feed abs filepath
+- [ ] make buttons/links
 - [ ] add css.
