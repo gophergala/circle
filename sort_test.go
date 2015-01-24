@@ -17,3 +17,7 @@ func TestSort(t *testing.T){
         t.Fatal("Directory doesn't get recognized")
     }
 }
+
+//func TestCreate(t *testing.T){
+//    CreateINE("/home/mohan/Desktop/mega")
+//}
