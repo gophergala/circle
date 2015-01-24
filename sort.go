@@ -48,7 +48,14 @@ func Sort(path string) error {
 func mapToDir(base, name string) error {
     defer wg.Done()
     
+    docFormats := []string{".doc", ".txt", ".pdf", ".djvu", ".odt", ".rtf", ".docx", ".html"}
+    
     ext := filepath.Ext(name)
+    
+    if sliceContains(docFormats, ext) {
+        //Move to Documents subfolder
+    }
+    
     
     log.Println(mime.TypeByExtension(ext))
     
@@ -66,6 +73,15 @@ func mapToDir(base, name string) error {
 //    }
 //    
 //}
+
+func sliceContains(formats []string, ext string) bool {
+    for _, format := range formats {
+        if ext == format {
+            return true
+        }
+    }
+    return false
+}
                 
     
     
