@@ -1,7 +1,6 @@
 package main
 
 import (
-    "io"
     "os"
     "log"
     "net/http"
@@ -30,28 +29,28 @@ func Run(){
 
 func DefaultHandler(res http.ResponseWriter, req *http.Request){
     path, err := homedir.Dir()
+    log.Println(path)
     checkErr(err)
     
-    dir, err := os.Open(path)
-    checkErr(err)
-    
-    fi, err := dir.Readdir(100)
-    checkErr(err)   
-    
+    fobj := CreateFList(path)
     
     t, err := template.ParseFiles("index.html")
     checkErr(err)
-    
-    fobj := &FList{Files: fi}
     
     err = t.Execute(res, fobj)
     checkErr(err)
 }
 
 func PathHandler(res http.ResponseWriter, req *http.Request){
-    newpath := req.FormValue("path")
-    w := io.Writer(res)
-    io.WriteString(w, newpath)
+    path := req.FormValue("path")
+    log.Println(path)
+    fobj := CreateFList(path)
+    
+    t, err := template.ParseFiles("index.html")
+    checkErr(err)
+    
+    err = t.Execute(res, fobj)
+    checkErr(err)
 }
 
 func checkErr(err error){
@@ -59,4 +58,17 @@ func checkErr(err error){
         log.Fatal(err)
     }
 }
+
+func CreateFList(path string) *FList {
+    dir, err := os.Open(path)
+    checkErr(err)
+    
+    fi, err := dir.Readdir(100)
+    checkErr(err) 
+    
+    fobj := &FList{Files: fi}
+    
+    return fobj
+}
+    
     
