@@ -1,3 +1,8 @@
-{{range .Files}}
-{{.}}
-{{end}}
+<html>
+    <body>
+    
+    {{range .Files}}
+        <h2>{{.Name}}</h2> <small>{{.Path}}</small>
+    {{end}}
+    </body>
+</html>

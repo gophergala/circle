@@ -11,9 +11,13 @@ import (
 )
 
 type FList struct {
-    Files []string
+    Files []FullPath
 }
-    
+
+type FullPath struct {
+    Name string
+    Path string
+}
 
 func Run(){
     
@@ -67,7 +71,9 @@ func checkErr(err error){
 }
 
 func CreateFList(path string) *FList {
-    fobj := &FList{Files: make([]string, 0, 100)}
+    fobj := &FList{Files: make([]FullPath, 0, 100)}
+    
+    
     dir, err := os.Open(path)
     checkErr(err)
     
@@ -75,7 +81,7 @@ func CreateFList(path string) *FList {
     checkErr(err)
     
     for _, file := range fi {
-        fobj.Files = append(fobj.Files, file.Name())
+        fobj.Files = append(fobj.Files, FullPath{Name:file.Name(), Path: path+"/"+file.Name()})
         log.Println(file.Name())
     }
     
