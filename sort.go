@@ -37,7 +37,7 @@ func Sort(path string) error {
     fi, err := dir.Readdir(100)
     for _, file := range fi {
         wg.Add(1)
-        go mapToDir(filepath.Join(path, file.Name()))
+        go mapToDir(path, file.Name())
     }
         
     wg.Wait()
@@ -45,9 +45,10 @@ func Sort(path string) error {
     
 }
 
-func mapToDir(path string) error {
+func mapToDir(base, name string) error {
     defer wg.Done()
-    ext := filepath.Ext(path)
+    
+    ext := filepath.Ext(name)
     
     log.Println(mime.TypeByExtension(ext))
     
