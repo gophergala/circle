@@ -11,7 +11,7 @@ import (
 )
 
 type FList struct {
-    Files []os.FileInfo
+    Files []string
 }
     
 
@@ -67,13 +67,19 @@ func checkErr(err error){
 }
 
 func CreateFList(path string) *FList {
+    fobj := &FList{Files: make([]string, 0, 100)}
     dir, err := os.Open(path)
     checkErr(err)
     
     fi, err := dir.Readdir(100)
-    checkErr(err) 
+    checkErr(err)
     
-    fobj := &FList{Files: fi}
+    for _, file := range fi {
+        fobj.Files = append(fobj.Files, file.Name())
+        log.Println(file.Name())
+    }
+    
+    //fobj := &FList{Files: fi}
     
     return fobj
 }
