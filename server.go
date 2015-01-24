@@ -30,36 +30,22 @@ func Run(){
 
 func DefaultHandler(res http.ResponseWriter, req *http.Request){
     path, err := homedir.Dir()
-    
-    if err != nil {
-        log.Fatal(err)
-    }
+    checkErr(err)
     
     dir, err := os.Open(path)
-    
-    if err != nil {
-        log.Fatal(err)
-    }
+    checkErr(err)
     
     fi, err := dir.Readdir(100)
-    
-    if err != nil {
-        log.Fatal(err)
-    }
-    
+    checkErr(err)   
     
     
     t, err := template.ParseFiles("index.html")
-    if err != nil {
-        log.Fatal(err)
-    }
+    checkErr(err)
     
     fobj := &FList{Files: fi}
     
     err = t.Execute(res, fobj)
-    if err != nil {
-        log.Fatal(err)
-    }
+    checkErr(err)
 }
 
 func PathHandler(res http.ResponseWriter, req *http.Request){
@@ -67,3 +53,10 @@ func PathHandler(res http.ResponseWriter, req *http.Request){
     w := io.Writer(res)
     io.WriteString(w, newpath)
 }
+
+func checkErr(err error){
+    if err != nil {
+        log.Fatal(err)
+    }
+}
+    

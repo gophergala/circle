@@ -12,12 +12,6 @@ import (
 
 var wg sync.WaitGroup
 
-func checkErr(err error){
-    if err != nil {
-        log.Println(err)
-    }
-}
-
 func Sort(path string) error {
     
     
