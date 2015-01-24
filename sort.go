@@ -7,6 +7,7 @@ import (
     "path/filepath"
     "mime"
     "sync"
+    "strings"
 )
 
 var wg sync.WaitGroup
@@ -58,12 +59,26 @@ func mapToDir(base, name string) error {
     }
     
     
-    log.Println(mime.TypeByExtension(ext))
+    mediatype := mime.TypeByExtension(ext)
+    if strings.Contains(mediatype, "image") {
+        MoveFile(base, name, "Images")
+    }
+    
+    if strings.Contains(mediatype, "audio") {
+        MoveFile(base, name, "Music")
+    }
+    
+    if strings.Contains(mediatype, "video") {
+        MoveFile(base, name, "Videos")
+    }
+    
+    
     
     return nil
 }
 
 //Creates if directory doesn't already exist
+//Will need this later, when we implement smart subfolders
 //func CreateINE(dir string){
 //    //Should lock other goroutines
 //    _, err := os.Stat(dir)
