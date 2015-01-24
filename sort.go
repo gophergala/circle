@@ -54,6 +54,9 @@ func mapToDir(base, name string) error {
     
     if sliceContains(docFormats, ext) {
         //Move to Documents subfolder
+        fulldirpath := filepath.Join(base, name)
+        fulltargetpath := filepath.Join(base, "Documents/", name)
+        os.Rename(fulldirpath, fulltargetpath)
     }
     
     

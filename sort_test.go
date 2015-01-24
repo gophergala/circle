@@ -11,7 +11,7 @@ func TestSort(t *testing.T){
         t.Fatal("File gets recognized as directory")
     }
     
-    err = Sort("/home/mohan/Desktop")
+    err = Sort("/home/mohan/testbed")
     
     if err != nil {
         t.Fatal("Directory doesn't get recognized")
