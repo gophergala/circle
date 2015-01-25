@@ -1,17 +1,11 @@
 # Circle
 
-Circle is a file management utility that can sort files under directories from their names and metadata. 
+Circle is a file management application that uses file metadata to group related files together. 
 
 
 # Usage
 
-Select a folder and Click 'Sort' Button
+Select a folder and Click 'Declutter' Button. To Open a folder, double Click.
 
-
-#TODO
-- [x] create the core utility
-- [x] create the http server and serve the file system.
-- [x] create the client
-- [x] make the server feed abs filepath
-- [ ] make buttons/links
-- [ ] add css.
+# Upcoming Versions
+The current version uses only extensions and mime-types to group files. The upcoming version will do pattern-matching on file names to group them.
