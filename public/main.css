@@ -1,11 +1,15 @@
 .content {
+    max-height: 300px;
     max-width: 768px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding-top: 0em;
     padding-bottom: 2em; 
     padding-left: 2em;
     padding-right: 2em;
+    overflow-y: scroll;
 }
 
 body {
