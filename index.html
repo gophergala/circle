@@ -1,8 +1,14 @@
 <html>
+    <head>
+        <Title> Circle backend </Title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="application/javascript" src="helper.js"></script>
+    </head>
     <body>
-    
-    {{range .Files}}
-        <h2>{{.Name}}</h2> <small>{{.Path}}</small>
-    {{end}}
+        <ul id='dirlist'>
+        {{range .Files}}
+            <li id='dir' data-path={{.Path}}>{{.Name}}</li>
+        {{end}}
+        </ul>
     </body>
 </html>
