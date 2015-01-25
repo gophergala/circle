@@ -10,4 +10,29 @@
 
 body, ul {
     list-style: none;
+    font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif; 
+}
+
+
+
+.main-table {
+    width: 100%;
+    /* Remove spacing between table cells (from Normalize.css) */
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+
+.main-table td,
+.main-table th {
+    font-size: inherit;
+    margin: 0;
+    overflow: visible; /*to make ths where the title is really long work*/
+    padding: 0.5em 1em; /* cell padding */
+}
+
+.main-table td:hover {
+    background-color: #eee;
+    border-radius: 4px;
 }
