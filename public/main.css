@@ -13,6 +13,24 @@ body, ul {
     font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif; 
 }
 
+.cmd-bar {
+    max-width:960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em 1em 1em 1em;
+}
+
+#pathfield {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.cmd-bar button {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 
 .main-table {
