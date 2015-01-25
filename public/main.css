@@ -8,6 +8,11 @@
     padding-right: 2em;
 }
 
+body {
+    background-color: #ffffff;
+    color: #222;
+}
+
 body, ul {
     list-style: none;
     font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif; 
@@ -53,4 +58,11 @@ body, ul {
 .main-table td:hover {
     background-color: #eee;
     border-radius: 4px;
+}
+
+#returnbtn {
+    width:100px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1em 1em 1em 1em;
 }
