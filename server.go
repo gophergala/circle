@@ -59,10 +59,19 @@ func PathHandler(res http.ResponseWriter, req *http.Request){
     checkErr(err)
 }
 
+type SortObj struct {
+    Path string
+}
+
 func SortHandler(res http.ResponseWriter, req *http.Request){
     path := req.FormValue("path")
-    log.Println(path)
     Sort(path)
+    
+    t, err := template.ParseFiles("sortpage.html")
+    checkErr(err)
+    
+    err = t.Execute(res, &SortObj{Path: path})
+    checkErr(err)
 }
 
 func checkErr(err error){
