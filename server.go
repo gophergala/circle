@@ -87,8 +87,14 @@ func CreateFList(path string) *FList {
     dir, err := os.Open(path)
     checkErr(err)
     
+    
     fi, err := dir.Readdir(100)
-    checkErr(err)
+    //checkErr(err)
+    
+    if(len(fi)==0){    
+    fobj.Files = append(fobj.Files, FullPath{Name:"This Directory is empty", Path: path})
+    return fobj
+    }
     
     for _, file := range fi {
         if file.IsDir() {
