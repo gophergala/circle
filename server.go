@@ -27,7 +27,7 @@ func Run(){
     r.HandleFunc("/", DefaultHandler).Methods("GET")
     r.HandleFunc("/", PathHandler).Methods("POST")
     r.HandleFunc("/sort", SortHandler).Methods("POST")
-    r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
+    r.PathPrefix("/public/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("./public/"))))
     
     http.Handle("/", r)
     http.ListenAndServe(":8080", nil)

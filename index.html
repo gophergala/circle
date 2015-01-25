@@ -2,7 +2,7 @@
     <head>
         <Title> Circle backend </Title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script type="application/javascript" src="helper.js"></script>
+        <script type="application/javascript" src="public/helper.js"></script>
     </head>
     <body>
         <ul id='dirlist'>
@@ -10,5 +10,7 @@
             <li class='dir' data-path={{.Path}}>{{.Name}}</li>
         {{end}}
         </ul>
+        <div id="pathfield">Please select a folder</div>
+        <button id="sortbutton">Sort</button>
     </body>
 </html>
