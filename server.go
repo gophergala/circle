@@ -7,6 +7,7 @@ import (
     "html/template"
     "github.com/gorilla/mux"
     "github.com/mitchellh/go-homedir"
+    "strings"
     
 )
 
@@ -98,9 +99,11 @@ func CreateFList(path string) *FList {
     
     for _, file := range fi {
         if file.IsDir() {
+            if (!strings.HasPrefix(file.Name(), ".")){ //Doesn't display Hidden folders
             fobj.Files = append(fobj.Files, 
                                 FullPath{Name:file.Name(), Path: path+"/"+file.Name()})
             log.Println(file.Name())
+            }
         }
     }
     
