@@ -9,14 +9,13 @@
     <body>
         <div class='content'>
             
-        <table id='dirlist' class="main-table">
+        <div id='dirlist'>
         
         {{range .Files}}
-            <tr>
-            <td class='dir' data-path={{.Path}}>{{.Name}}</td>
-            </tr>
+
+                <div class='dir' data-path={{.Path}}>{{.Name}}</div>
         {{end}}
-        </table>
+        </div>
         </div>
         <div class="cmd-bar pure-g">            
             <div class="pure-u-3-4" id="pathfield">Click to select, double click to open</div>
