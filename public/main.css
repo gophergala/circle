@@ -7,28 +7,7 @@
     padding-right: 2em;
 }
 
-body {
-    background-color: #ffffff;
-    color: #222;
-}
 
-.cmd-bar {
-    max-width:960px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1em 1em 1em 1em;
-}
-
-#pathfield {
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-}
-
-.cmd-bar button {
-    margin-left: auto;
-    margin-right: auto;
-}
 
 
 .dir {
@@ -51,10 +30,49 @@ body {
     color: #eee;
 }
 
+.cmd-bar {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 1em 1em 1em 1em;
+    background: #ff0;
+}
 
+.cmd-bar div {
+    display: inline;
+    width: 200px;
+}
+
+.cmd-wrap {
+    margin-left: auto;
+    margin-right: auto;
+}
+    
 #returnbtn {
-    width:100px;
+    float: left;
+    width: 200px;
+}
+
+#sortbutton {
+    float: right;
+    width: 200px;
+}
+    
+
+#pathfield {
     margin-right: auto;
     margin-left: auto;
-    padding: 1em 1em 1em 1em;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
 }
+
+/*
+.cmd-bar button {
+    margin-left: auto;
+    margin-right: auto;
+}
+*/
+
+
+

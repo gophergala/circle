@@ -9,22 +9,22 @@
     </head>
     <body>
         <div class='content'>
-            
-        <div id='dirlist'>
         
         {{range .Files}}
 
                 <div class='dir' data-path={{.Path}}><i class="fa fa-folder"></i> {{.Name}}</div>
         {{end}}
         </div>
+        <div class="cmd-bar">
+            <div class="cmd-wrap">
+            <div id="returnbtn"><a  class="pure-button pure-button-primary" href='http://localhost:8080'> <i class="fa fa-home"></i> </a></div>
+            <div  id="pathfield">Click to select, double click to open</div>
+            <div id="sortbutton"><button class="pure-button pure-button-primary" >Declutter</button></div>
+            </div>
+
         </div>
-        <div class="cmd-bar pure-g">            
-            <div class="pure-u-3-4" id="pathfield">Click to select, double click to open</div>
-            <div class="pure-u-1-4"><button class="pure-button pure-button-primary" id="sortbutton">Declutter</button></div>
         </div>
-        <div id="returnbtn">
-        <a  class="pure-button pure-button-primary" href='http://localhost:8080'> Return </a>
-        </div>
+        
         
     </body>
 </html>
