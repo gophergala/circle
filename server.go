@@ -28,6 +28,7 @@ func Run(){
     r.HandleFunc("/", DefaultHandler).Methods("GET")
     r.HandleFunc("/", PathHandler).Methods("POST")
     r.HandleFunc("/sort", SortHandler).Methods("POST")
+    r.HandleFunc("/regsort", RegSortHandler).Methods("POST")
     r.PathPrefix("/public/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("./public/"))))
     
     http.Handle("/", r)
@@ -67,6 +68,18 @@ type SortObj struct {
 func SortHandler(res http.ResponseWriter, req *http.Request){
     path := req.FormValue("path")
     Sort(path)
+    
+    t, err := template.ParseFiles("sortpage.html")
+    checkErr(err)
+    
+    err = t.Execute(res, &SortObj{Path: path})
+    checkErr(err)
+}
+
+func RegSortHandler(res http.ResponseWriter, req *http.Request){
+    path := req.FormValue("path")
+    pattern := req.FormValue("pattern")
+    SortWithRegexp(path, pattern)
     
     t, err := template.ParseFiles("sortpage.html")
     checkErr(err)
