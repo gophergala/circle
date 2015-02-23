@@ -8,6 +8,7 @@ import (
     "mime"
     "sync"
     "strings"
+    "regexp"
 )
 
 var wg sync.WaitGroup
@@ -39,6 +40,39 @@ func Sort(path string) error {
     return err
     
 }
+
+func SortWithRegexp(path string, pattern string) error {
+    reg, err := regexp.Compile(pattern)
+    if err != nil {
+        log.Println("Bad regex")
+    }
+    
+    log.Println("Function works")
+    
+    handle, err := os.Lstat(path)
+    
+    if !handle.IsDir() {
+        log.Print("It's not a directory")
+        return errors.New("error")
+    }
+    
+    os.Mkdir(filepath.Join(path, "Grouped"), 0777)
+    
+    dir, err := os.Open(path)
+    fi, err:= dir.Readdir(100)
+    for _, file := range fi {
+        filematch := reg.MatchString(file.Name())
+        if filematch == true {
+            MoveFile(path, file.Name(), "Grouped")
+        }
+    }
+    return nil
+}
+    
+    
+    
+    
+    
 
 func mapToDir(base, name string) error {
     defer wg.Done()
