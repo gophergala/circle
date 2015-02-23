@@ -8,7 +8,17 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     </head>
     <body>
+        
+        <div id="modebar">
+            <button id="mode">Custom</button>
+            <div id="modefield">
+                /<input type="text" id="mode"></input>/
+            </div>
+        </div>
+        
         <div class='content'>
+            
+       
         
         {{range .Files}}
 
@@ -21,6 +31,7 @@
             <div id="returnbtn"><button class="pure-button" href='http://localhost:8080'> <i class="fa fa-home"></i>. </button></div>
                 <div  id="pathfield">Click to select, double click to open</div>
             <div id="sortbutton"><button class="pure-button" >Declutter</button></div>
+            
 
         </div>
         

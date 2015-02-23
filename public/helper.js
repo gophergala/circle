@@ -18,4 +18,11 @@ $(function(){
             $('body').html(data)
         })
     })
+    
+    $('button#mode').click(function(){
+        $('#modefield').toggle();
+        $(this).text($(this).text() == "Classic" ? "Custom" : "Classic");
+    });
+    
+    $('button#mode').click();
 })
