@@ -12,11 +12,16 @@ $(function(){
     })
     
     $('#sortbutton').click(function(){
+        var mode = $('button#mode').text();
+        console.log(mode)
         var path = $('#pathfield').text();
-//        console.log(path)
-        $.post("/sort", {path: path}).done(function(data){
-            $('body').html(data)
-        })
+        if (mode == "Classic"){
+            classic(path);
+        } else {
+            var pattern = $('input#mode').val();
+            custom(path, pattern);
+        }
+       
     })
     
     $('button#mode').click(function(){
@@ -26,3 +31,17 @@ $(function(){
     
     $('button#mode').click();
 })
+
+
+function classic(path){
+    $.post("/sort", {path: path}).done(function(data){
+            $('body').html(data)
+    })
+}
+
+function custom(path, pattern){
+    $.post("/regsort", {path: path, pattern: pattern}).done(function(data){
+            $('body').html(data)
+    })
+}
+    
