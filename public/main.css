@@ -1,5 +1,5 @@
 .content {
-    margin-top: 3em;
+    margin-top: 5em;
     margin-bottom: 2em;
     padding-top: 0em;
     padding-bottom: 2em; 
@@ -85,6 +85,9 @@
 
 #modefield {
     display: inline-block;
+    position: relative;
+    right: 30px;
+    top: 10px;
     clear: both;
 }
 
@@ -94,6 +97,21 @@
     top: 20px;
     right: 20px;
     float: right;
+}
+
+input#mode{
+    width:150px;
+    display: inline;
+    background: #fff;
+    border: 0px solid #fff;
+    border-bottom: 1px solid #ccc;
+    
+}
+
+button#mode{
+    float: right;
+    display: inline-block;
+    width: 100px;
 }
 
 
